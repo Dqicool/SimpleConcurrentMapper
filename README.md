@@ -22,7 +22,15 @@ for result in concurrent_submit(fn=example_function, tasks=tasks, nproc=4, chunk
 ## One interface
 
 ```python
-concurrent_mapper.concurrent_submit(*, fn : callable, tasks : iterable, other_args=tuple(), kwargs=dict(), nproc = 4, chunk_size = 0, mode = 'mt'/'mp'/'seq')
+concurrent_mapper.concurrent_submit(*,
+    fn : callable,
+    tasks : iterable,
+    other_args=tuple(),
+    kwargs=dict(),
+    nproc = 4,
+    chunk_size = 0,
+    mode = 'mt'/'mp'/'seq'
+)
 ```
 
 Witch submit `fn(*((task[i], ) + other_args), **kwargs)` to a queue with max length `nproc`, the maximum concurrent jobs.
